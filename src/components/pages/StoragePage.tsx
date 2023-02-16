@@ -1,5 +1,5 @@
-import { ObjectSessionStorageComponent } from '../modules/ObjectSessionStorageComponent';
-import { SimpleSessionStorageComponet } from '../modules/SimpleSessionStorageTestComponent';
+import { ObjectSessionStorageComponent } from '@/components/modules/ObjectSessionStorageComponent';
+import { SimpleSessionStorageComponet } from '@/components/modules/SimpleSessionStorageTestComponent';
 
 export const StoragePage = () => {
   return (

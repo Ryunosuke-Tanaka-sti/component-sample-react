@@ -31,6 +31,8 @@ export const Button = ({
   label,
   ...props
 }: ButtonProps) => {
+  console.log(primary, size, backgroundColor);
+
   return (
     <button
       type="button"

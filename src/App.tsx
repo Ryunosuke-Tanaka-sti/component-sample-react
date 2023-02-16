@@ -1,8 +1,14 @@
+import { RecoilRoot } from 'recoil';
+
 import './App.css';
 import { RouterConfig } from './router/RouterConfig';
 
 function App() {
-  return <RouterConfig />;
+  return (
+    <RecoilRoot>
+      <RouterConfig />
+    </RecoilRoot>
+  );
 }
 
 export default App;
