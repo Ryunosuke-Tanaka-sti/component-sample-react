@@ -6,7 +6,9 @@ export const MyPage = () => {
   const uid = useRecoilValue(userUidState);
   return (
     <>
-      <main className="flex flex-col gap-5">{uid}</main>
+      <main className="flex flex-col gap-5">
+        {uid ? '見せられないけど取得できているよ' : '取得失敗してない？'}
+      </main>
     </>
   );
 };
