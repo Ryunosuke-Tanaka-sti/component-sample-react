@@ -8,3 +8,9 @@ export type UserDataType = {
   gender: number;
   mail: string;
 };
+
+export type testType = {
+  id: number;
+  text: string;
+  done: boolean;
+};
