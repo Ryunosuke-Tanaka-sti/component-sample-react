@@ -9,6 +9,7 @@ export const SwrPage = () => {
   const { getUsers, getUser } = useAxios();
   // const getFetcher = (url: string) => axios.get(url).then((res) => res.data);
 
+  // SWRでやればエラーもこちらで定義しているものにできる
   const TestUsersComponent = () => {
     const { data, isLoading, isValidating, mutate } = useSWR('/test', getUsers);
     console.log(data);

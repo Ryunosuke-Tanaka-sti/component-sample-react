@@ -1,24 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
 
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 
 import { auth } from '@/hooks/authFirebase';
 import { authenticatedState, userUidState } from '@/provider/firebaseStore';
+import { RedirectComponent } from '@/utilities/RedirectComponent';
 
 type Props = {
   component: React.ReactNode;
 };
-
-const NavigationPage = ({ redirect }: { redirect: string }) => {
-  return (
-    <>
-      <Navigate to={redirect} state={{ from: useLocation() }} replace={false} />
-    </>
-  );
-};
-
 export const RouterAuthenticatedCheck = (props: Props) => {
   const { component } = props;
   const [loading, setLoading] = useState<boolean>(false);
@@ -57,7 +48,7 @@ export const RouterAuthenticatedCheck = (props: Props) => {
 export const RouterHasAuthenticated = (props: Props) => {
   const { component } = props;
   const authenticated = useRecoilValue(authenticatedState);
-  if (!authenticated) return <NavigationPage redirect="/firebase" />;
+  if (!authenticated) return <RedirectComponent redirect="/firebase" />;
 
   return <>{component}</>;
 };
