@@ -9,10 +9,9 @@ export const LinkPage = () => {
         <ol className="flex flex-row gap-3">
           <LinkComponent text="Home" url="/" />
           <LinkComponent text="Storage" url="/storage" />
-          <LinkComponent text="Firebase" url="/firebase" />
-          <LinkComponent text="Firebase-Mypage" url="/firebase/mypage" />
           <LinkComponent text="errorBoundary" url="/errorBoundary" />
           <LinkComponent text="SWR" url="/swr" />
+          <LinkComponent text="Firebase" url="/firebase" />
           <LinkComponent text="Azure" url="/azure" />
         </ol>
       </header>
