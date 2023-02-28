@@ -1,5 +1,7 @@
 import React, { ErrorInfo } from 'react';
 
+import { isAxiosError } from 'axios';
+
 export default class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean; errorMessage: string }
@@ -32,7 +34,11 @@ export default class ErrorBoundary extends React.Component<
 
   onUnhandledRejection = (event: PromiseRejectionEvent) => {
     event.promise.catch((error) => {
-      this.setState(ErrorBoundary.getDerivedStateFromError(error));
+      if (isAxiosError(error)) {
+        this.setState({ hasError: true, errorMessage: 'Axios Error' });
+      } else {
+        this.setState(ErrorBoundary.getDerivedStateFromError(error));
+      }
     });
   };
 

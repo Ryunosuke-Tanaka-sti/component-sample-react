@@ -2,12 +2,15 @@ import { RecoilRoot } from 'recoil';
 
 import './App.css';
 import { RouterConfig } from './router/RouterConfig';
+import { AzureConfigComponent } from './utilities/AzureConfigComponent';
 
 function App() {
   return (
-    <RecoilRoot>
-      <RouterConfig />
-    </RecoilRoot>
+    <AzureConfigComponent>
+      <RecoilRoot>
+        <RouterConfig />
+      </RecoilRoot>
+    </AzureConfigComponent>
   );
 }
 

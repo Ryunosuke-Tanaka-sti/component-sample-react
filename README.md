@@ -56,6 +56,17 @@
 - [[React + Firebase Authentication]（前編）react プロジェクトの作成と firebase の初期設定](https://tech-lab.sios.jp/archives/31047)
 - [[React + Firebase Authentication]（後編）ワンクリックログイン機能とルーティングの設定](https://tech-lab.sios.jp/archives/31117)
 
+### Azure AD について
+
+- [公式チュートリアル](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/tutorial-v2-react)
+- [わかりやすい初期設定](https://fwywd.com/tech/aadb2c-auth)
+- [わかりやすい導入](https://fwywd.com/tech/nextjs-azure-ad-b2c)
+- [AD Config わかりやすさ](https://qiita.com/kujila_shiro/items/425e059afe542fa428cc)
+- [AAD Config わかりやすさ](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/1-Authentication/2-sign-in-b2c/SPA/src/authConfig.js)
+- [Template わかりやすさ](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/tutorial-v2-react)
+- [AD と AADB2C の違い](https://jpazureid.github.io/blog/azure-active-directory/azure-ad-b2c-fundamentals/#:~:text=Azure%20AD%20%E3%81%8C%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%97%E3%83%A9%E3%82%A4%E3%82%BA%20(%E4%BC%81%E6%A5%AD,%E7%82%B9%E3%81%8C%E5%A4%A7%E3%81%8D%E3%81%8F%E7%95%B0%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82)
+- [AADB2C 利点](https://www.sigmact.com/updated/azure/azureadb2c/azureadb2c/)
+
 ### Suspense について
 
 - [React の Suspense 対応非同期処理を手書きするハンズオン](https://zenn.dev/uhyo/books/react-concurrent-handson)
