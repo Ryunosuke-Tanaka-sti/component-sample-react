@@ -8,13 +8,7 @@ export const LinkPage = () => {
       <header className="my-10">
         <ol className="flex flex-row gap-3">
           <LinkComponent text="Home" url="/" />
-          <LinkComponent text="Storage" url="/storage" />
-          <LinkComponent text="errorBoundary" url="/errorBoundary" />
-          <LinkComponent text="SWR" url="/swr" />
-          <LinkComponent text="Firebase" url="/firebase" />
           <LinkComponent text="Azure" url="/azure" />
-          <LinkComponent text="Axios" url="/axios" />
-          <LinkComponent text="microCMS" url="/microCMS" />
         </ol>
       </header>
       <main>

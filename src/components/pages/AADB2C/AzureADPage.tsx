@@ -7,7 +7,7 @@ import {
 
 import { useAADB2CAuth } from '@/hooks/useAADB2CAuth';
 
-export const AzureADPage = () => {
+export const AzureADB2CPage = () => {
   const { loginAzure, logoutAzure } = useAADB2CAuth();
   return (
     <>
