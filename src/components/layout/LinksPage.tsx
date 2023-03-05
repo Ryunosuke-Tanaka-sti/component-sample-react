@@ -13,6 +13,8 @@ export const LinkPage = () => {
           <LinkComponent text="SWR" url="/swr" />
           <LinkComponent text="Firebase" url="/firebase" />
           <LinkComponent text="Azure" url="/azure" />
+          <LinkComponent text="Axios" url="/axios" />
+          <LinkComponent text="microCMS" url="/microCMS" />
         </ol>
       </header>
       <main>

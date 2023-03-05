@@ -12,18 +12,21 @@
 //   },
 // };
 
-export const msalConfig = {
+import { Configuration, RedirectRequest } from '@azure/msal-browser';
+
+export const msalConfig: Configuration = {
   auth: {
     clientId: import.meta.env.VITE_AADB2C_CLIENT_ID || '',
     authority: import.meta.env.VITE_AADB2C_AUTHORITY || '',
     knownAuthorities: [import.meta.env.VITE_AADB2C_KNOWN_AUTHORITES || ''],
-    redirectUri: window.location.origin,
+    redirectUri: window.location.origin + '/azure',
   },
   cache: {
     cacheLocation: 'sessionStorage',
     storeAuthStateInCookie: false,
   },
 };
-export const loginRequest = {
+export const loginRequest: RedirectRequest = {
+  redirectStartPage: window.location.origin + '/azure/mypage',
   scopes: ['openid'],
 };

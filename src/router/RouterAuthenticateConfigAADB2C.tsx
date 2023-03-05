@@ -10,10 +10,13 @@ export const RouterAuthenticatedCheck = (props: Props) => {
   const { component } = props;
   const { inProgress } = useAADB2CAuth();
 
-  if (inProgress == InteractionStatus.Startup)
+  if (
+    inProgress == InteractionStatus.Startup ||
+    inProgress == InteractionStatus.HandleRedirect
+  )
     return (
       <div className="flex justify-center">
-        <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent" />
       </div>
     );
 
@@ -23,6 +26,7 @@ export const RouterAuthenticatedCheck = (props: Props) => {
 export const RouterHasAuthenticated = (props: Props) => {
   const { component } = props;
   const { isAuthenticated } = useAADB2CAuth();
+
   if (!isAuthenticated) return <RedirectComponent redirect="/azure" />;
   return <>{component}</>;
 };

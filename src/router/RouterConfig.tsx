@@ -4,9 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { LinkPage } from '@/components/layout/LinksPage';
 import { AzureADPage } from '@/components/pages/AADB2C/AzureADPage';
 import { MyPage as MypageAADB2C } from '@/components/pages/AADB2C/MyPage';
+import { AxiosClientPage } from '@/components/pages/AxiosClientPage';
 import { ErrorBoundaryPage } from '@/components/pages/ErrorBoundaryPage';
 import { FirebasePage } from '@/components/pages/FirebasePage/FirebasePage';
 import { MyPage as MyPageFirebase } from '@/components/pages/FirebasePage/MyPage';
+import { MicroCMSPage } from '@/components/pages/MicroCMSPage';
 import { StoragePage } from '@/components/pages/StoragePage';
 import { SwrPage } from '@/components/pages/SwrPage';
 
@@ -56,6 +58,8 @@ export const RouterConfig = () => {
               }
             />
           </Route>
+          <Route path="axios" element={<AxiosClientPage />} />
+          <Route path="microCMS" element={<MicroCMSPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

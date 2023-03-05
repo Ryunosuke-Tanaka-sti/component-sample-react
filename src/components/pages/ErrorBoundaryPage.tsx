@@ -1,9 +1,9 @@
 import { Suspense, useEffect } from 'react';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 
+import axios from 'axios';
 import { useRecoilValue } from 'recoil';
 
-import { axiosClient } from '@/hooks/axiosClient';
 import { testState } from '@/provider/firebaseStore';
 import OfficailSampleErrorBoundary from '@/utilities/Errorboundary';
 
@@ -25,23 +25,50 @@ export const ErrorBoundaryPage = () => {
   return (
     <>
       {/* network errorをキャッチしたい設定をするとうまくいかないでござる */}
-      <OfficailSampleErrorBoundary>
-        <ErrorOccuredUseAxiosComponent />
-        <ErrorOccurredComponent />
-      </OfficailSampleErrorBoundary>
+      <main className="flex flex-col gap-10">
+        <div>
+          <h1>offical sample</h1>
+          <OfficailSampleErrorBoundary>
+            <ErrorOccuredUseAxiosComponent />
+          </OfficailSampleErrorBoundary>
+          <OfficailSampleErrorBoundary>
+            <ErrorOccurredComponent />
+          </OfficailSampleErrorBoundary>
+        </div>
 
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Suspense fallback={<>loading</>}>
-          <ErrorOccuredUserAxiosSuspenceComponet />
-        </Suspense>
-        <ErrorOccuredUseAxiosComponent />
-        <ErrorOccurredComponent />
-      </ErrorBoundary>
+        <div>
+          <h1>error boundary</h1>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Suspense fallback={<>loading</>}>
+              <ErrorOccuredUserAxiosSuspenceComponet />
+            </Suspense>
+          </ErrorBoundary>
+          <div>
+            <ErrorBoundary FallbackComponent={ErrorFallback}>
+              <Suspense fallback={<>loading</>}>
+                <ErrorOccuredUseAxiosComponent />
+              </Suspense>
+            </ErrorBoundary>
+          </div>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <ErrorOccurredComponent />
+          </ErrorBoundary>
+        </div>
 
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        {/* axiosのエラーは取得できない確認用 */}
-        <ErrorOccuredUseAxiosComponent />
-      </ErrorBoundary>
+        <div>
+          <h1>error boundary axios</h1>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            {/* axiosのエラーは取得できない確認用 */}
+            <ErrorOccuredUseAxiosComponent />
+          </ErrorBoundary>
+          <h1>error boudary axios swr</h1>
+          <ErrorBoundary FallbackComponent={ErrorFallback}>
+            <Suspense fallback={<>loading</>}>
+              <ErrorOccuredUserAxiosSuspenceComponet />
+            </Suspense>
+          </ErrorBoundary>
+        </div>
+      </main>
     </>
   );
 };
@@ -62,7 +89,7 @@ const ErrorOccurredComponent = () => {
 
 const ErrorOccuredUseAxiosComponent = () => {
   useEffect(() => {
-    axiosClient.get('https://localteset.com/yesyes');
+    axios.get('https://localteset.com/yesyes');
   }, []);
 
   return <>Axios Data</>;

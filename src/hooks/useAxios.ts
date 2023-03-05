@@ -1,8 +1,7 @@
 import { AxiosResponse } from 'axios';
 
 import { testType } from '@/types/type';
-
-import { axiosClient } from './axiosClient';
+import { axiosClient } from '@/utilities/AxiosClient';
 
 export const useAxios = () => {
   const addUser = (data: testType) => {

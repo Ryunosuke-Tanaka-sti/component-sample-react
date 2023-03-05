@@ -64,8 +64,21 @@
 - [AD Config わかりやすさ](https://qiita.com/kujila_shiro/items/425e059afe542fa428cc)
 - [AAD Config わかりやすさ](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/blob/main/1-Authentication/2-sign-in-b2c/SPA/src/authConfig.js)
 - [Template わかりやすさ](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/tutorial-v2-react)
-- [AD と AADB2C の違い](https://jpazureid.github.io/blog/azure-active-directory/azure-ad-b2c-fundamentals/#:~:text=Azure%20AD%20%E3%81%8C%E3%82%A8%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%97%E3%83%A9%E3%82%A4%E3%82%BA%20(%E4%BC%81%E6%A5%AD,%E7%82%B9%E3%81%8C%E5%A4%A7%E3%81%8D%E3%81%8F%E7%95%B0%E3%81%AA%E3%82%8A%E3%81%BE%E3%81%99%E3%80%82)
+- [AD と AADB2C の違いについて](https://jpazureid.github.io/blog/azure-active-directory/azure-ad-b2c-fundamentals/)
 - [AADB2C 利点](https://www.sigmact.com/updated/azure/azureadb2c/azureadb2c/)
+
+### microCMS について
+
+- [公式リファレンス](https://document.microcms.io/content-api/get-list-contents)
+- [microCMS × Next.js（TypeScript）で個人ブログを作る](https://qiita.com/hinako_n/items/e53b02c241b8e35d42cb#blogs)
+- [型定義に関して 1](https://waml.dev/blog/nextjs-1)
+- [型定義に関して 2](https://zenn.dev/sora_kumo/articles/2876c8f98eca56)
+- [microCMS の markdown を変換する方法:dangerouslySetInnerHTML](https://hatolabo.com/programming/react%E3%81%A7html%E6%96%87%E5%AD%97%E5%88%97%E3%82%92%E6%8F%8F%E7%94%BB%E3%81%99%E3%82%8Bdangerouslysetinnerhtml)
+- microCMS の markdown を変換する方法:html-react-parser
+  - [公式](https://github.com/remarkablemark/html-react-parser#install)
+  - https://www.engilaboo.com/react-html-parse/
+  - https://kray.jp/blog/react-html-parser/
+  - https://ji23-dev.com/blogs/microcms-html-react-parser
 
 ### Suspense について
 
