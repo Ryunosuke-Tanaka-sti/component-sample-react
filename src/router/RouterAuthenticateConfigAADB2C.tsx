@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import { InteractionStatus } from '@azure/msal-browser';
 
 import { useAADB2CAuth } from '@/hooks/useAADB2CAuth';
@@ -8,7 +10,10 @@ type Props = {
 };
 export const RouterAuthenticatedCheck = (props: Props) => {
   const { component } = props;
-  const { inProgress } = useAADB2CAuth();
+  const { inProgress, isAuthenticated } = useAADB2CAuth();
+  useEffect(() => {
+    console.log(inProgress, isAuthenticated);
+  }, [inProgress, isAuthenticated]);
 
   if (
     inProgress == InteractionStatus.Startup ||

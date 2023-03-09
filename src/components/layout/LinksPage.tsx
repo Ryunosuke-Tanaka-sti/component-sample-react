@@ -15,9 +15,10 @@ export const LinkPage = () => {
           <LinkComponent text="Azure" url="/azure" />
           <LinkComponent text="Axios" url="/axios" />
           <LinkComponent text="microCMS" url="/microCMS" />
+          <LinkComponent text="popup" url="/popup" />
         </ol>
       </header>
-      <main>
+      <main className="relative">
         <Outlet />
       </main>
     </>

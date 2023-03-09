@@ -9,6 +9,7 @@ import { ErrorBoundaryPage } from '@/components/pages/ErrorBoundaryPage';
 import { FirebasePage } from '@/components/pages/FirebasePage/FirebasePage';
 import { MyPage as MyPageFirebase } from '@/components/pages/FirebasePage/MyPage';
 import { MicroCMSPage } from '@/components/pages/MicroCMSPage';
+import { PopupPage } from '@/components/pages/PopupPage';
 import { StoragePage } from '@/components/pages/StoragePage';
 import { SwrPage } from '@/components/pages/SwrPage';
 
@@ -60,6 +61,7 @@ export const RouterConfig = () => {
           </Route>
           <Route path="axios" element={<AxiosClientPage />} />
           <Route path="microCMS" element={<MicroCMSPage />} />
+          <Route path="popup" element={<PopupPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

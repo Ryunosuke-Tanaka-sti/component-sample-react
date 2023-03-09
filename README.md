@@ -66,6 +66,15 @@
 - [Template わかりやすさ](https://learn.microsoft.com/ja-jp/azure/active-directory/develop/tutorial-v2-react)
 - [AD と AADB2C の違いについて](https://jpazureid.github.io/blog/azure-active-directory/azure-ad-b2c-fundamentals/)
 - [AADB2C 利点](https://www.sigmact.com/updated/azure/azureadb2c/azureadb2c/)
+- Redirect Login との格闘
+  - https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_browser.html
+  - https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_browser.html#redirectrequest
+  - https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/2514
+  - https://pub.dev/documentation/msal_js/latest/msal_js/RedirectRequest/onRedirectNavigate.html
+  - https://pub.dev/documentation/msal_js/latest/msal_js/RedirectRequest/redirectStartPage.html
+  - https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/msal-angular-v1/lib/msal-angular/src/msal-guard.service.ts#L75
+  - https://stackoverflow.com/questions/71671755/redirect-to-home-page-after-react-azure-ad-login
+  - https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/1474
 
 ### microCMS について
 

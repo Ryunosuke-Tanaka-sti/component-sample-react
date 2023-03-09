@@ -19,7 +19,7 @@ export const msalConfig: Configuration = {
     clientId: import.meta.env.VITE_AADB2C_CLIENT_ID || '',
     authority: import.meta.env.VITE_AADB2C_AUTHORITY || '',
     knownAuthorities: [import.meta.env.VITE_AADB2C_KNOWN_AUTHORITES || ''],
-    redirectUri: window.location.origin + '/azure',
+    redirectUri: window.location.origin,
   },
   cache: {
     cacheLocation: 'sessionStorage',
@@ -27,6 +27,7 @@ export const msalConfig: Configuration = {
   },
 };
 export const loginRequest: RedirectRequest = {
-  redirectStartPage: window.location.origin + '/azure/mypage',
+  redirectStartPage: window.location.origin + '/azure/mypage?file=123',
+  onRedirectNavigate: () => true,
   scopes: ['openid'],
 };
