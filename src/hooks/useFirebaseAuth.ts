@@ -1,6 +1,6 @@
 import { signInWithRedirect, signOut } from 'firebase/auth';
 
-import { auth, provider } from './authFirebase';
+import { auth, provider } from '../auth/authFirebase';
 
 export const useFirebaseAuth = () => {
   const signInAction = () => {

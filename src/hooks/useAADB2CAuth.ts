@@ -3,7 +3,7 @@ import { useCallback, useMemo } from 'react';
 import { AccountInfo } from '@azure/msal-browser';
 import { useIsAuthenticated, useMsal } from '@azure/msal-react';
 
-import { loginRequest } from './authAzure';
+import { loginRequest } from '../auth/authAzure';
 
 export const useAADB2CAuth = () => {
   const { instance, accounts, inProgress } = useMsal();

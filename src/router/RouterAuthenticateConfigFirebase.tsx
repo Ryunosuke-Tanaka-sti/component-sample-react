@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { useRecoilValue, useResetRecoilState, useSetRecoilState } from 'recoil';
 
-import { auth } from '@/hooks/authFirebase';
+import { auth } from '@/auth/authFirebase';
 import { authenticatedState, userUidState } from '@/provider/firebaseStore';
 import { RedirectComponent } from '@/utilities/RedirectComponent';
 

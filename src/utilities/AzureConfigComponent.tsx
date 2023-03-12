@@ -1,7 +1,7 @@
 import { PublicClientApplication } from '@azure/msal-browser';
 import { MsalProvider } from '@azure/msal-react';
 
-import { msalConfig } from '@/hooks/authAzure';
+import { msalConfig } from '@/auth/authAzure';
 
 type Props = {
   children: React.ReactNode;
