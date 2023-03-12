@@ -17,8 +17,11 @@ export const SWRConfigComponent = (props: Props) => {
           if (isAxiosError(err)) {
             console.log(err);
             const axiosError = err as AxiosError;
-            if (axiosError.response?.status == 404) {
-              console.error('404なんですわ');
+
+            switch (axiosError.response?.status) {
+              case 400:
+              case 404:
+                console.log('error');
             }
           }
           handleError(err);
