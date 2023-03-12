@@ -9,6 +9,7 @@ import { CatPage } from '@/components/pages/CatPage';
 import { ErrorBoundaryPage } from '@/components/pages/ErrorBoundaryPage';
 import { FirebasePage } from '@/components/pages/FirebasePage/FirebasePage';
 import { MyPage as MyPageFirebase } from '@/components/pages/FirebasePage/MyPage';
+import { FirestorePage } from '@/components/pages/FirestorePage';
 import { MicroCMSPage } from '@/components/pages/MicroCMSPage';
 import { PopupPage } from '@/components/pages/PopupPage';
 import { StoragePage } from '@/components/pages/StoragePage';
@@ -64,6 +65,7 @@ export const RouterConfig = () => {
           <Route path="microCMS" element={<MicroCMSPage />} />
           <Route path="popup" element={<PopupPage />} />
           <Route path="cat" element={<CatPage />} />
+          <Route path="firestore" element={<FirestorePage />} />
         </Route>
       </Routes>
     </BrowserRouter>

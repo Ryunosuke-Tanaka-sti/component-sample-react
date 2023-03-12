@@ -6,12 +6,13 @@ export const LinkPage = () => {
   return (
     <>
       <header className="my-10">
-        <ol className="flex flex-row gap-3">
+        <ol className="flex flex-row flex-wrap gap-3">
           <LinkComponent url="/" />
           <LinkComponent url="/storage" />
           <LinkComponent url="/errorBoundary" />
           <LinkComponent url="/swr" />
           <LinkComponent url="/firebase" />
+          <LinkComponent url="/firestore" />
           <LinkComponent url="/azure" />
           <LinkComponent url="/axios" />
           <LinkComponent url="/microCMS" />

@@ -99,7 +99,9 @@
 ## ブログ記事
 
 - [SessionStorage と LocalStorage の取り組みちゃん](https://tech-lab.sios.jp/archives/32834)
--
+- [Azure AD B2C 認証ページを作ってみる【React】](https://tech-lab.sios.jp/archives/33189)
+- [Azure AD B2C 認証オプションについて【React】](https://tech-lab.sios.jp/archives/33229)
+- [エラーハンドリング：Axios Interseptor【React】](https://tech-lab.sios.jp/archives/33155)
 
 ## 関連
 
