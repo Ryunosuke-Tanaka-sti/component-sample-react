@@ -1,11 +1,14 @@
 import {
   addDoc,
   collection,
+  deleteDoc,
+  doc,
   DocumentData,
   FirestoreDataConverter,
   getDocs,
   QueryDocumentSnapshot,
   serverTimestamp,
+  setDoc,
   SnapshotOptions,
 } from 'firebase/firestore';
 
@@ -30,23 +33,30 @@ export const useFireStore = () => {
       return {
         text: todo.text,
         done: todo.done,
-        timestamp: serverTimestamp(),
+        timestamp: todo.timestamp ? todo.timestamp : serverTimestamp(),
       };
     },
   };
   const getTodo = async (): Promise<todoType[]> => {
+    console.log('come on');
+
     const collRef = collection(db, 'todo').withConverter(todoConverter);
     const snapshot = await getDocs(collRef);
     const result = snapshot.docs.map((doc) => doc.data());
     return result;
   };
-  const addTodo = async (todo: todoType): Promise<todoType> => {
+  const addTodo = async (todo: todoType): Promise<void> => {
     const collRef = collection(db, 'todo').withConverter(todoConverter);
-    const result = await addDoc(collRef, todo);
-    return {
-      ...todo,
-      uid: result.id,
-    };
+    await addDoc(collRef, todo);
   };
-  return { getTodo, addTodo };
+  const editTodo = async (todo: todoType): Promise<void> => {
+    const collRef = doc(db, 'todo', todo.uid).withConverter(todoConverter);
+    await setDoc(collRef, todo);
+  };
+  const deleteTodo = async (uid: string): Promise<void> => {
+    const collRef = doc(db, 'todo', uid);
+    await deleteDoc(collRef);
+  };
+
+  return { getTodo, addTodo, editTodo, deleteDoc, deleteTodo };
 };

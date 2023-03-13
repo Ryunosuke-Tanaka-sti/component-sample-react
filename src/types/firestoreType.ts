@@ -1,6 +1,6 @@
 export type todoType = {
   uid: string;
   text: string;
-  timestamp: Date;
+  timestamp?: Date;
   done: boolean;
 };

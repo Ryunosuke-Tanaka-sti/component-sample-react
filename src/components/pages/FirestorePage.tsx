@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 
-import useSWR from 'swr';
+import useSWR, { KeyedMutator } from 'swr';
 
 import { useFireStore } from '@/hooks/useFireStore';
+import { todoType } from '@/types/firestoreType';
 import { SWRConfigComponent } from '@/utilities/SWRConfigComponent';
 
 export const FirestorePage = () => {
-  const { getTodo, addTodo } = useFireStore();
+  const { getTodo, addTodo, editTodo, deleteTodo } = useFireStore();
   const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
     return (
       <>
@@ -22,17 +23,59 @@ export const FirestorePage = () => {
     const { data, isLoading, isValidating, mutate } = useSWR('/todo', getTodo);
     const [text, setText] = useState<string>('');
 
+    const EditCompoent = (props: {
+      todo: todoType;
+      mutate: KeyedMutator<todoType[]>;
+    }) => {
+      const { todo, mutate } = props;
+      const [edit, setEdit] = useState<string>(todo.text);
+
+      const handleOnEdit = async (e: React.SyntheticEvent): Promise<void> => {
+        e.preventDefault();
+        await editTodo({ ...todo, text: edit });
+        mutate();
+      };
+
+      return (
+        <>
+          <form onSubmit={(e) => handleOnEdit(e)}>
+            {todo.uid}:
+            <input
+              type="text"
+              value={edit}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEdit(e.target.value)
+              }
+            />
+            :{todo.done}:{todo.timestamp?.toLocaleString()}
+            <button className="bg-gray-600" type="submit">
+              編集
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                handleOnDelete(todo.uid);
+              }}
+            >
+              削除
+            </button>
+          </form>
+        </>
+      );
+    };
     const handleOnSubmit = async (e: React.SyntheticEvent): Promise<void> => {
       e.preventDefault();
-      const sendData = await addTodo({
+      await addTodo({
         uid: '',
         done: true,
         text: text,
-        timestamp: new Date(),
       });
       setText('');
-      const newData = data ? [...data, sendData] : [sendData];
-      mutate(newData);
+      mutate();
+    };
+    const handleOnDelete = async (uid: string): Promise<void> => {
+      await deleteTodo(uid);
+      mutate();
     };
 
     if (isLoading || isValidating) return <>取得中◎</>;
@@ -40,10 +83,11 @@ export const FirestorePage = () => {
       <>
         <section>
           {data?.map((value) => (
-            <div key={value.uid}>
-              {value.uid}:{value.text}:{value.done}:
-              {value.timestamp.toLocaleString()}
-            </div>
+            // <div key={value.uid}>
+            //   {value.uid}:{value.text}:{value.done}:
+            //   {value.timestamp.toLocaleString()}
+            // </div>
+            <EditCompoent key={value.uid} todo={value} mutate={mutate} />
           ))}
         </section>
         <form onSubmit={(e) => handleOnSubmit(e)}>
@@ -59,6 +103,7 @@ export const FirestorePage = () => {
       </>
     );
   };
+
   return (
     <section>
       <div>firestore page 作るぞ～</div>
