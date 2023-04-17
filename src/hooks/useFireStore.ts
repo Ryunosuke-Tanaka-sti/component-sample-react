@@ -38,8 +38,6 @@ export const useFireStore = () => {
     },
   };
   const getTodo = async (): Promise<todoType[]> => {
-    console.log('come on');
-
     const collRef = collection(db, 'todo').withConverter(todoConverter);
     const snapshot = await getDocs(collRef);
     const result = snapshot.docs.map((doc) => doc.data());
@@ -50,13 +48,15 @@ export const useFireStore = () => {
     await addDoc(collRef, todo);
   };
   const editTodo = async (todo: todoType): Promise<void> => {
-    const collRef = doc(db, 'todo', todo.uid).withConverter(todoConverter);
-    await setDoc(collRef, todo);
+    const collRef = collection(db, 'todo');
+    const docRef = doc(collRef, todo.uid);
+    await setDoc(docRef, todo);
   };
   const deleteTodo = async (uid: string): Promise<void> => {
-    const collRef = doc(db, 'todo', uid);
-    await deleteDoc(collRef);
+    const collRef = collection(db, 'todo');
+    const docRef = doc(collRef, uid);
+    await deleteDoc(docRef);
   };
 
-  return { getTodo, addTodo, editTodo, deleteDoc, deleteTodo };
+  return { getTodo, addTodo, editTodo, deleteTodo };
 };

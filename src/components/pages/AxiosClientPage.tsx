@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import {
   axiosClient,
   AxiosErrorHandlingComponent,
-} from '@/utilities/AxiosClient';
+} from '@/utilities/AxiosClientComponent';
 
 export const AxiosClientPage = () => {
   useEffect(() => {

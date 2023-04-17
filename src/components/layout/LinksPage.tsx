@@ -18,6 +18,8 @@ export const LinkPage = () => {
           <LinkComponent url="/microCMS" />
           <LinkComponent url="/popup" />
           <LinkComponent url="/cat" />
+          <LinkComponent url="/test" />
+          <LinkComponent url="error" />
         </ol>
       </header>
       <main className="relative">
